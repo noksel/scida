@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="i">ico.gif</file>
+        <file alias="aw">addWndw.gif</file>
+    </qresource>
+</RCC>
