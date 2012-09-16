@@ -5,7 +5,7 @@
 class RndChX : public ChannelX
 {
     Q_OBJECT
-    double val;
+
 public:
     explicit RndChX(QObject *parent = 0);
     RndChX(QString);

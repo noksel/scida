@@ -6,18 +6,22 @@
 #include "channelx.h"
 #include "channely.h"
 #include <QStandardItemModel>
+#include "prxchannel.h"
 
 class measurement : public QObject
 {
     Q_OBJECT
 public:
-    channel* chX;
-    channel* chY;
+  //  channel* chX; //old version
+ //   channel* chY; //old version
+    prxChannel* chX;
+    prxChannel* chY;
+
     double min;
     int delay; // between measure
     bool stop_flag;
 
-    double max;
+
     QString name;
     int i; //current index of point to measure
     int n; // all quantity of points
@@ -27,7 +31,8 @@ public:
     // generator shaga
 
     explicit measurement(QObject *parent = 0);
-    measurement(QString title,ChannelX* chanX,ChannelY* chanY, QStandardItemModel *storage);
+  //  measurement(QString title,ChannelX* chanX,ChannelY* chanY, QStandardItemModel *storage);
+      measurement(QString title, prxChannel* chanX,prxChannel* chanY, QStandardItemModel *storage);
 
     QString getMesTitle();
     
@@ -39,6 +44,7 @@ public slots:
 
 private slots:
     void singleMeasure();
+    void stop();
 
     
 };

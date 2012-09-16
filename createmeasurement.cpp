@@ -13,6 +13,7 @@ CreateMeasurement::CreateMeasurement(QVector<device *> dvcs):ui(new Ui::CreateMe
     devs=dvcs;
 
      ui->setupUi(this);
+
     for(int i =0;i<dvcs[0]->getChannelsX().count();i++)
     {
         ui->comboBox->addItem(dvcs[0]->getChannelsX()[i]->getName());
@@ -36,10 +37,15 @@ CreateMeasurement::~CreateMeasurement()
 
 void CreateMeasurement::createMeasurement()
 {
-    MsrmntWindow* nw = new MsrmntWindow(ui->lineEdit->text(),devs[0]->getChannelsX()[0],devs[0]->getChannelsY()[0]);
+   // MsrmntWindow* nw = new MsrmntWindow(ui->lineEdit->text(),devs[0]->getChannelsX()[0],devs[0]->getChannelsY()[0]);
+    PrxRndChX* x= new PrxRndChX((RndChX*)devs[0]->getChannelsX()[0]);
+
+    PrxRndChY* y = new PrxRndChY((RndChY*)devs[0]->getChannelsY()[0]);
+
+   MsrmntWindow* nw = new MsrmntWindow(ui->lineEdit->text(),x,y);
     nw->show();
     emit createdMsrmnWindow(nw);
 
-    qDebug()<<"create";
+
     close();
 }

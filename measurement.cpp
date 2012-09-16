@@ -5,7 +5,9 @@ measurement::measurement(QObject *parent) :
 {
 }
 
-measurement::measurement(QString title,ChannelX *chanX, ChannelY *chanY, QStandardItemModel* storage)
+
+
+measurement::measurement(QString title, prxChannel* chanX,prxChannel* chanY, QStandardItemModel *storage)
 {
     chX=chanX;
     chY=chanY;
@@ -37,6 +39,7 @@ void measurement::measure()
     connect(tmr,SIGNAL(timeout()),this,SLOT(singleMeasure()));
     }
     curveId++;
+    i=0;
    data->setColumnCount((curveId+1)*2);
     data->setRowCount(1000);
     tmr->start(delay);
@@ -50,27 +53,27 @@ void measurement::measure()
         data->setData( data->index( i, 0 ), i );
         data->setData( data->index( i, 1 ), chY->getY());
     }
-    qDebug()<<"measure";*/
+ */
 }
 
 void measurement::singleMeasure()
 {
 
-    if(i<n)  // !stop_flag
-    {
        // chX->setX(i*10);
+        double d=   chX->getValue();
+        qDebug()<<d;
 
-        data->setData( data->index( i, curveId*2 ),  chX->getVal());
-        data->setData( data->index( i, curveId*2+1 ), chY->getVal());
+        data->setData( data->index( i, curveId*2 ),  d);
+        data->setData( data->index( i, curveId*2+1 ), chY->getValue());
         i++;
-    }
-    else
-    {
-        i=0;
-        chX->clearCh();
-        chY->clearCh();
-        tmr->stop();
 
 
-    }
+
+}
+
+void measurement::stop()
+{
+
+   tmr->stop();
+
 }

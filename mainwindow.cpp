@@ -20,13 +20,13 @@ MainWindow::MainWindow(QWidget *parent) :
     cmWindow = new CreateMeasurement(dvces);
 
 
-   qDebug()<<dvces[0]->getChannelsX().value(0)->getName();
+ /*  qDebug()<<dvces[0]->getChannelsX().value(0)->getName();
 
    for(int i =0;i<dvces[0]->getChannelsY().count();i++)
    {
        qDebug()<<dvces[0]->getChannelsY()[i]->getY();
    }
-
+*/
    QMenu* rdM = ui->menuDevices->addMenu(dvces[0]->getDevName());
     QAction* cr =rdM->addAction("Settings");
 
