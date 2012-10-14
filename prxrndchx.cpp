@@ -9,16 +9,19 @@ PrxRndChX::PrxRndChX(RndChX *rndChX)
 {
     ch = rndChX;
     min=0;
-    max=490;
+    max=590;
     step=10;
-    current=min-step;
+    current=min;
     name= "proxyRndCh_X";
+    st= new stepper();
+    st->addRange(min,max,step);
 
 }
 
 double PrxRndChX::getValue()
 {
-    current+=step;
+    qDebug()<<"curr "<<current<<"stp "<<st->getStep(current);
+
 
 
 
@@ -26,12 +29,11 @@ double PrxRndChX::getValue()
     {
         ch->setX(current);
         double tmp=current;
-
-        if((current+step)>max)
+        current+=st->getStep(current);
+        if(current>max)
         {
-            current=min-step;
+            current=min;
             emit End();
-
 
         }
 

@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     msrmntwindow.cpp \
     prxchannel.cpp \
     prxrndchy.cpp \
-    prxrndchx.cpp
+    prxrndchx.cpp \
+    stepper.cpp
 
 HEADERS  += mainwindow.h \
     grphset.h \
@@ -43,7 +44,8 @@ HEADERS  += mainwindow.h \
     msrmntwindow.h \
     prxchannel.h \
     prxrndchy.h \
-    prxrndchx.h
+    prxrndchx.h \
+    stepper.h
 
 FORMS    += mainwindow.ui \
     grphset.ui \

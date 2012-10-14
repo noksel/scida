@@ -2,10 +2,13 @@
 #define PRXRNDCHX_H
 #include "prxchannel.h"
 #include "rndchx.h"
+#include "stepper.h"
 
 class PrxRndChX : public prxChannel
 {
     RndChX* ch;
+// setting Window!!!
+    stepper* st;
     double min;
     double max;
     double step;
