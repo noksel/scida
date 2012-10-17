@@ -15,6 +15,9 @@ PrxRndChX::PrxRndChX(RndChX *rndChX)
     name= "proxyRndCh_X";
     st= new stepper();
     st->addRange(min,max,step);
+    st->addRange((max-min)/2-30,(max-min)/2+30,1);
+    st->addRange(100,150,0.5);
+
 
 }
 
