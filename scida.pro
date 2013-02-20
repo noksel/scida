@@ -23,7 +23,11 @@ SOURCES += main.cpp\
     rndsettingswindow.cpp \
     createmeasurement.cpp \
     measurement.cpp \
-    msrmntwindow.cpp
+    msrmntwindow.cpp \
+    prxchannel.cpp \
+    prxrndchy.cpp \
+    prxrndchx.cpp \
+    stepper.cpp
 
 HEADERS  += mainwindow.h \
     grphset.h \
@@ -37,7 +41,11 @@ HEADERS  += mainwindow.h \
     rndsettingswindow.h \
     createmeasurement.h \
     measurement.h \
-    msrmntwindow.h
+    msrmntwindow.h \
+    prxchannel.h \
+    prxrndchy.h \
+    prxrndchx.h \
+    stepper.h
 
 FORMS    += mainwindow.ui \
     grphset.ui \
@@ -52,4 +60,10 @@ INCLUDEPATH += C:/KDAB/KDChart-2.4.3w7din/include
 INCLUDEPATH +=C:/KDAB/KDChart 2.4.3 Source/include
 LIBS += -LC:/KDAB/KDChart-2.4.3w7din/lib -lkdchartd2 -ltesttools
 
+}
+unix{
+INCLUDEPATH += \
+/media/lnx/QT/kdchart-2.4.3-source/include
+
+LIBS += -L"/usr/lib" -lkdchart -ltesttools
 }

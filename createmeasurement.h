@@ -5,9 +5,13 @@
 #include "device.h"
 #include <QVector>
 #include "msrmntwindow.h"
+
 /* crate measuremetnObj(chX,chY,data_storage), create measurementWindow(measurementObj) [get dataStorage from measurementObj]
   createmeasurment send SIGNAL(createedMes(measurementWindow)) to MainWindow SLOT(addNewWindow(measurementWindow))
   */
+
+#include "prxrndchx.h"
+#include "prxrndchy.h"
 namespace Ui {
 class CreateMeasurement;
 }

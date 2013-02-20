@@ -11,7 +11,7 @@ public:
     explicit channel(QObject *parent = 0);
     channel(QString);
     QString getName();
-    virtual double getVal()=0;
+
     virtual bool clearCh()=0;
 
 protected:

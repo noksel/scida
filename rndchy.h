@@ -13,7 +13,7 @@ public:
     RndChY(QString);
     void setBroad(int br);
     double getY();
-    double getVal();
+
     bool clearCh();
     
 signals:
